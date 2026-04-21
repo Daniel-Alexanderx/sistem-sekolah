@@ -19,8 +19,8 @@ class Student extends Database
         $stmt->execute();
 
         $result = $stmt->get_result();
-        
-        while($student = $result->fetch_assoc()) {
+
+        while ($student = $result->fetch_assoc()) {
             $students[] = $student;
 
         }
@@ -44,6 +44,29 @@ class Student extends Database
 
         return $student;
 
+    }
+
+    //Fungsi menambah siswa baru
+    public function insert(array $data)
+    {
+        $name = htmlspecialchars($data['name']);
+        $nis = htmlspecialchars($data['nis']);
+        $class = htmlspecialchars($data['class']);
+        $phoneNumber = htmlspecialchars($data['phone_number']);
+
+        $query = "INSERT INTO {$this->table} (name, nis, class, phone_number) VALUES (?,?,?,?)";
+
+        $stmt = $this->connection->prepare($query);
+        $stmt->bind_param('ssss', $name, $nis, $class, $phoneNumber);
+        $stmt->execute();
+
+        if ($stmt->affected_rows > 0) {
+            header('Location: /students');
+            exit;
+
+        } else {
+            echo 'Error To Store Student';
+        }
     }
 
 }

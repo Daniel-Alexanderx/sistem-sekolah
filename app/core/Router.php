@@ -22,7 +22,7 @@ class Router
         $method = $_SERVER['REQUEST_METHOD'];
 
         if($method === 'POST' && isset($_POST['_method'])) {
-            $method = $_POST['method'];
+            $method = strtoupper($_POST['_method']) ;
 
         }
 
