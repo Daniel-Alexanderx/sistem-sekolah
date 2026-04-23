@@ -11,28 +11,29 @@
             <!-- Card Body start -->
 
             <div class="bg-white shadow rounded-lg p-4">
-                <form action="" class="grid grid-cols-2 gap-4">
-                    <div class="space-y-2">
+                <form action="/student/<?= $student['id']?>" method="POST" class="grid grid-cols-2 gap-4">
+                    <input type="hidden" name="_method" value="PUT">
+                <div class="space-y-2">
                         <label class="block font-bold" for="name">Nama</label>
-                        <input class="w-full px-4 py-2 border rounded-lg" type="text" id="name"
+                        <input value="<?= $student['name']?>" class="w-full px-4 py-2 border rounded-lg" type="text" id="name"
                             placeholder="Masukkan Nama" name="name">
                     </div>
 
                     <div class="space-y-2">
                         <label class="block font-bold" for="nis">NIS</label>
-                        <input class="w-full px-4 py-2 border rounded-lg" type="text" id="nis"
+                        <input value="<?= $student['nis']?>" class="w-full px-4 py-2 border rounded-lg" type="text" id="nis"
                             placeholder="Masukkan NIS" name="nis">
                     </div>
 
                     <div class="space-y-2">
                         <label class="block font-bold" for="kelas">Kelas</label>
-                        <input class="w-full px-4 py-2 border rounded-lg" type="text" id="kelas"
+                        <input value="<?= $student['class']?>" class="w-full px-4 py-2 border rounded-lg" type="text" id="kelas"
                             placeholder="Masukkan Kelas" name="kelas">
                     </div>
 
                     <div class="space-y-2">
                         <label class="block font-bold" for="phone_number">Nomor Telepon</label>
-                        <input class="w-full px-4 py-2 border rounded-lg" type="text" id="phone_number"
+                        <input value="<?= $student['phone_number']?>" class="w-full px-4 py-2 border rounded-lg" type="text" id="phone_number"
                             placeholder="Masukkan Nomor Telepon" name="phone_number">
                     </div>
 
